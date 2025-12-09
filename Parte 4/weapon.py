@@ -3,19 +3,19 @@ import random
 class Weapon:
     def __init__(self, name: str, min_damage: int, max_damage, weapon_type: str):
         if name == "":
-            ValueError("Weapon name cannot be empty.")
+            raise ValueError("Weapon name cannot be empty.")
         self.__name = name
 
         if min_damage < 1:
-            ValueError("Min damage cannot be less than 1.")
+            raise ValueError("Min damage cannot be less than 1.")
         self.__min_damage = min_damage
 
         if max_damage < min_damage:
-            ValueError("Max damage cannot be less than min damage.")
+            raise ValueError("Max damage cannot be less than min damage.")
         self.__max_damage = max_damage
         
         if weapon_type.lower() not in ["melee", "ranged"]:
-            ValueError("Weapon type must be either 'melee' or 'ranged'.")
+            raise ValueError("Weapon type must be either 'melee' or 'ranged'.")
         self.__weapon_type = weapon_type
 
     @property
